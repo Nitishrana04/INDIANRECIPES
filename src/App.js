@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeList from './components/RecipeList';
 import RecipeDetail from './components/RecipeDetail';
 
 import './App.css'; // You can add styles here
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+const URL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=2f83093a&app_key=22a5e26b324fb7630412023d05b76a15&imageSize=REGULAR&q=sugar"
 
 const App = () => {
   // Simulated recipe data
@@ -41,15 +43,43 @@ const App = () => {
     // Add more recipes here
   ];
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [recipeList, setRecipeList] = useState([]);
 
-  const closeRecipeDetail = () => {
-    setSelectedRecipe(null);
-  };
+  useEffect(() => {
+    fetch(URL)           //api for the get request
+      .then(response => response.json())
+      .then(data => {
+        const res = [];
+        data.hits.forEach(({recipe}, index) => {
+          const {image, ingredientLines, label} = recipe;
+            res.push({
+              ...recipe,
+              id: index,
+              image,
+              ingredients: ingredientLines,
+              title: label,
+            })
+        });
+        setRecipeList(res);
+        console.log(data)
+      });
+  }, [])
+
+
+  const onRecipeClick = (recipe) => {
+    setSelectedRecipe(recipe);
+  }
 
   return (
     <div className="App">
       <Navbar />
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RecipeList recipes={recipeList} onRecipeClick={onRecipeClick} />}></Route>
+          <Route path="/recipe/:id" element={<RecipeDetail recipe={selectedRecipe} />}></Route>
+        </Routes>
+      </BrowserRouter>
+
       <Footer />
     </div>
   );
