@@ -1,38 +1,308 @@
-.App {
-  text-align: center;
-}
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15PX;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .recipe-card {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    max-width: 300px;
+    /* Set a fixed height for the recipe cards */
+    height: 350px;
+    overflow: hidden; /* Hide overflow content */
+    padding: 8px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .recipe-image {
+    max-width: 100%;
+    max-height: 200px; /* Adjust the max height as needed */
+    object-fit: cover; /* Maintain image aspect ratio and cover the container */
   }
+  
+  .recipe-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-card p {
+    margin: 5px 0;
+  }
+  
+  
+/* Footer styles */
+footer {
+    background-color:whitesmoke;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+footer h1 {
+    font-size: 28px;
+    margin-bottom: 15px; /* Add some space below the h1 */
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow content to wrap to the next line */
+    align-items: flex-start;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    margin-bottom: 20px; /* Add some space between footer sections */
+}
+
+.footer-left h1 {
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-left button {
+    height: 40px;
+    background-color: white;
+    color:black;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.footer-left button:hover {
+    background-color: orange;
+}
+
+.footer-left p {
+    color:black;
+    font-size: 20px;
+}
+
+.social-icons {
+    margin-top: auto; /* Center the social icons */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color:black;
+    font-size: 24px;
+    text-decoration: none;
+    
+}
+
+.social-icons a:hover {
+    color: #e91e63; /* Change color on hover */
+}
+
+.footer-center p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-center a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-center a:hover {
+    color: #e91e63; /* Change color on hover */
+}
+
+.footer-right p {
+    color: black;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-right a {
+    color:black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: #e91e63; /* Change color on hover */
+}
+
+
+
+.News-text {
+    text-align: center;
+    size: 200px;
+}
+
+.blog-left{
+    text-align: left;
+
+}
+
+.blog-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blog-left img {
+    max-width: 200px;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+
+.blog-content {
+    flex: 1;
+}
+hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+.blog-link {
+    text-decoration: none;
+    color: #000; /* Change link color as needed */
+}
+
+.blog-link:hover {
+    text-decoration: underline; /* Add underline on hover if desired */
+}
+.blog-content a {
+    text-decoration: none;
+    color: black; /* Default link text color */
+}
+
+.blog-content a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: red; /* Hover link text color */
+}
+
+.main-img{
+    width: 100%;
+}
+
+
+.checked {
+    color: orange;
+  }
+
+  .rating{
+    text-align: left;
+  }
+
+
+  .login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-container button[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-container button[type="submit"]:hover {
+    background-color: #0056b3;
 }
