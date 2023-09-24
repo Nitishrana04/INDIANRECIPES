@@ -19,6 +19,10 @@
     overflow: hidden; /* Hide overflow content */
     padding: 8px;
   }
+  .recipe-link {
+    color: #212521;
+    text-decoration: none;
+  }
   
   .recipe-image {
     max-width: 100%;
